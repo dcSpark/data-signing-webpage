@@ -1,0 +1,33 @@
+@import "../../../scss/general_styling";
+
+.ResultContainer {
+  width: 100%;
+  margin-top: 2em;
+  .HeaderResult {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .ResultTitle {
+      @include primary-text($body, $white, 400);
+    }
+
+    .ButtonsContainer {
+      display: flex;
+      span {
+        color: $grey-5;
+        margin: 0 0.25em;
+      }
+    }
+  }
+  .Result {
+    border-radius: 6px;
+    background: $gradient-theme-4;
+    padding: 1.5em;
+    margin-top: 0.5em;
+
+    h3 {
+      @include primary-text($h3, $white, 400);
+    }
+  }
+}

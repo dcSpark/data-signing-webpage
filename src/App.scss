@@ -1,0 +1,55 @@
+@import "./scss/_general_styling.scss";
+
+.App {
+  height: 100vh;
+  width: 100%;
+  background-color: $black-1;
+  overflow-x: hidden;
+
+  .App-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 4em;
+
+    .App-logo {
+      height: 25px;
+      pointer-events: none;
+    }
+  }
+
+  .MainContainer {
+    padding: 1em 4em;
+    h1 {
+      @include primary-text($h1, $white, 600);
+    }
+    .Content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1em;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .App {
+    .App-header {
+      padding: 1em 2em;
+      .App-logo {
+        height: 20px;
+      }
+    }
+    .MainContainer {
+      padding: 1em 2em;
+
+      h1 {
+        @include primary-text($h2, $white, 600);
+      }
+
+      .Content {
+        flex-direction: column;
+      }
+    }
+  }
+}

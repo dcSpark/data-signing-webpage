@@ -1,0 +1,19 @@
+@import "../../../scss/general_styling";
+
+.WalletIndicator {
+  display: flex;
+  border-radius: 6px;
+  background-color: $black-2;
+  padding: 0.5em 1em 0.5em 0.5em;
+
+  .IconWallet {
+    margin-right: 0.5em;
+    width: 24px;
+    height: 24px;
+  }
+
+  p {
+    @include primary-text($body, $white, 600);
+    margin: 0;
+  }
+}

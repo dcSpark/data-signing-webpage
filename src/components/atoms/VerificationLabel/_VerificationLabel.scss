@@ -1,0 +1,40 @@
+@import "../../../scss/general_styling";
+
+.VerificationLabel {
+  padding: 0.5em;
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+  display: flex;
+
+  img {
+    margin-right: 0.5em;
+  }
+
+  h4 {
+    @include primary-text($h4, $white, 600);
+  }
+
+  &.Valid {
+    background: linear-gradient(
+      241.11deg,
+      rgba(162, 187, 255, 0.1) 0%,
+      rgba(30, 214, 158, 0.1) 100%
+    );
+
+    h4 {
+      color: #1ed69e;
+    }
+  }
+
+  &.Invalid {
+    background: linear-gradient(
+      70.69deg,
+      rgba(235, 87, 87, 0.2) 12.74%,
+      rgba(162, 187, 255, 0.1) 86.79%
+    );
+
+    h4 {
+      color: #eb5757;
+    }
+  }
+}

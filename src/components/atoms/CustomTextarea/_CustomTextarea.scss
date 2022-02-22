@@ -1,0 +1,26 @@
+@import "../../../scss/general_styling";
+
+.CustomTextarea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1em;
+
+  .TextLabel {
+    @include primary-text($label, $white, 400);
+    margin-bottom: 0.5em;
+  }
+
+  .TextareaComponent {
+    @include primary-text($h4, $black-1, 400);
+    resize: none;
+    padding: 1em;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: -webkit-fill-available;
+    display: block;
+    transition: all 0.3s;
+  }
+}

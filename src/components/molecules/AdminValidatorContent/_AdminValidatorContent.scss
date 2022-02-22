@@ -1,0 +1,32 @@
+@import "../../../scss/general_styling";
+
+.AdminValidatorContent {
+  width: 65%;
+  border-radius: 10px;
+  background: $gradient-theme-4;
+  border: 1px solid $white;
+  padding: 1em;
+  padding-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .AdminValidatorContent {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .AdminValidatorContent {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .AdminValidatorContent {
+    width: 90%;
+    margin-bottom: 1em;
+  }
+}

@@ -1,0 +1,26 @@
+@import "../../../scss/general_styling";
+
+.ActionButton {
+  .Button {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    img {
+      margin-right: 0.25em;
+    }
+    p {
+      @include primary-text($body, $primary-color, 600);
+    }
+
+    &.Disable {
+      opacity: 0.3;
+    }
+  }
+}

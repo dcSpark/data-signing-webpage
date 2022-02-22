@@ -1,0 +1,81 @@
+@import "../../../scss/general_styling";
+
+.UserGuide {
+  width: 30%;
+  .Title {
+    display: flex;
+    align-items: center;
+    .IconTitle {
+      margin-right: 0.5em;
+      width: 24px;
+      height: 24px;
+    }
+
+    h3 {
+      @include primary-text($h3, $white, 600);
+      margin: 0;
+    }
+  }
+  .GuideContent {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: $black-2;
+    padding: 1em;
+    margin-top: 1em;
+
+    .Label {
+      background: $gradient-theme-4;
+      padding: 0.25em 0.5em;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: 0.5em;
+      span {
+        font-size: $label;
+        font-family: "Manrope", sans-serif;
+        font-weight: 700;
+        background: $gradient-theme-1;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+
+    hr {
+      border: none;
+      border-bottom: 1px solid $black-4;
+      width: 100%;
+      margin: 1.5em 0;
+    }
+
+    h4 {
+      @include primary-text($h4, $white, 600);
+      margin-bottom: 0.25em;
+    }
+
+    p {
+      @include primary-text($body, $white, 400);
+      margin: 0;
+
+      a {
+        color: $primary-color;
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .UserGuide {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .UserGuide {
+    width: 100%;
+    margin-top: 1em;
+  }
+}

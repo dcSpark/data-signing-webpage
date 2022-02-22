@@ -1,0 +1,24 @@
+@import "../../../scss/general_styling";
+
+.WalletAddress {
+  display: flex;
+  flex-direction: column;
+  .WalletLabel {
+    @include primary-text($label, $white, 400);
+  }
+
+  .AddressContent {
+    display: flex;
+    margin-top: 0.25em;
+    img {
+      margin-right: 0.5em;
+      width: 20px;
+      height: 20px;
+    }
+
+    h4 {
+      @include primary-text($h4, $white, 600);
+      margin: 0;
+    }
+  }
+}

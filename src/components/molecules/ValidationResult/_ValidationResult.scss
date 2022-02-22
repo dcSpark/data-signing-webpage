@@ -1,0 +1,54 @@
+@import "../../../scss/general_styling";
+
+.ValidationResult {
+  width: 30%;
+  .Title {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      @include primary-text($h3, $white, 600);
+      margin: 0;
+    }
+  }
+  .ValidationContent {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: $black-2;
+    padding: 2em 1.5em;
+    margin-top: 1em;
+
+    p {
+      @include primary-text($body, $white, 400);
+      margin: 0;
+    }
+
+    .WalletsContainer {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1.5em;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ValidationResult {
+    width: 40%;
+    .ValidationContent {
+      .WalletsContainer {
+        flex-direction: column;
+        padding-bottom: 0.5em;
+        .WalletAddress {
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .ValidationResult {
+    width: 100%;
+  }
+}
