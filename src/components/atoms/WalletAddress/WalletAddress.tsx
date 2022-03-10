@@ -1,7 +1,7 @@
 import React from "react";
 import "./_WalletAddress.scss";
 
-const WalletAddress = ({ textLabel, text }) => (
+const WalletAddress = ({ textLabel, text }: any) => (
   <div className="WalletAddress">
     <p className="WalletLabel">{textLabel}</p>
     <div className="AddressContent">

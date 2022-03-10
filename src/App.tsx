@@ -11,7 +11,7 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<FastTrack />} />
+          <Route path="/" element={<FastTrack />} />
           <Route path="/admin" element={<AdminValidator />} />
         </Routes>
       </div>

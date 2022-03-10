@@ -3,8 +3,9 @@ import ActionButton from "../../atoms/ActionButton/ActionButton";
 import EmptyState from "../../atoms/EmptyState/EmptyState";
 import "./_ResultContainer.scss";
 
-const ResultContainer = () => (
-  <div className="ResultContainer">
+const ResultContainer = ({ rewardAddr, ethAddr, signedMessage }: any) => {
+  console.log("signed", signedMessage);
+  return (<div className="ResultContainer">
     <div className="HeaderResult">
       <p className="ResultTitle">Result</p>
       <div className="ButtonsContainer">
@@ -20,16 +21,17 @@ const ResultContainer = () => (
     </div>
     <div className="Result">
       {/* Use this component for Empty State */}
-      <EmptyState text="No results yet" />
-      {/* <h3>
-        "reward_address": "addr1...",
-        <br />
-        "milkomeda_address": "0xa12347sb...",
-        <br />
-        "sign_messaged": "lorem ipsum"
-      </h3> */}
+      {rewardAddr === undefined || ethAddr === undefined || signedMessage === undefined || rewardAddr === '' || ethAddr === '' || signedMessage === '' ?
+        <EmptyState text="No results yet" /> :
+        <h3 style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+          "reward_address": "{rewardAddr}",
+          <br />
+          "milkomeda_address": "{ethAddr}",
+          <br />
+          "sign_messaged": "{signedMessage}"
+        </h3>}
     </div>
-  </div>
-);
+  </div>);
+};
 
 export default ResultContainer;

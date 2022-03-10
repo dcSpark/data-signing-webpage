@@ -7,8 +7,7 @@ const AdminValidatorContent = () => (
   <div className="AdminValidatorContent">
     <CustomTextarea textLabel="Signed Data" />
     <CustomButton
-      type="primary"
-      htmlType="submit"
+      type="submit"
       text="Verify"
       theme="primary"
     />

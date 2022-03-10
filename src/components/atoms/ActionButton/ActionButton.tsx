@@ -1,7 +1,7 @@
 import React from "react";
 import "./_ActionButton.scss";
 
-const ActionButton = ({ IconButton, textButton, theme }) => {
+const ActionButton = ({ IconButton, textButton, theme }: any) => {
   const classname = `Button ${theme}`;
   return (
     <div className="ActionButton">

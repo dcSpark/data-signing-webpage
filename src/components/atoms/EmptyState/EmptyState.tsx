@@ -1,7 +1,7 @@
 import React from "react";
 import "./_EmptyState.scss";
 
-const EmptyState = ({ text }) => (
+const EmptyState = ({ text }: any) => (
   <div className="EmptyState">
     <img className="IconEmpty" src="img/iconEmpty.svg" alt="" />
     <span className="TextGradient">{text}</span>

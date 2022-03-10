@@ -1,9 +1,9 @@
 import React from "react";
 import "./_CustomInput.scss";
 
-const CustomInput = ({ inputLabel }) => (
+const CustomInput = ({ inputLabel, value, isReadOnly, onChange}: any) => (
   <div className="CustomInput">
-    <label for="name" className="InputLabel">
+    <label htmlFor="name" className="InputLabel">
       {inputLabel}
     </label>
     <input
@@ -11,7 +11,10 @@ const CustomInput = ({ inputLabel }) => (
       className="InputItem"
       id="name"
       placeholder={inputLabel}
-      required=""
+      required
+      value={value}
+      readOnly={isReadOnly}
+      onChange={onChange}
     />
   </div>
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import "./_VerificationLabel.scss";
 
-const VerificationLabel = ({ iconVerification, text, theme }) => {
+const VerificationLabel = ({ iconVerification, text, theme }: any) => {
   const classname = `VerificationLabel ${theme}`;
   return (
     <div className={classname}>
