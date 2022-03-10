@@ -16,12 +16,14 @@ function FastTrack() {
   const [walletAddress, setWalletAddress] = React.useState('');
   const [cborWalletAddress, setCborWalletAddress] = React.useState('');
   const [Cardano, setCardano] = React.useState<null | typeof import('@emurgo/cardano-serialization-lib-browser/cardano_serialization_lib')>(null);
+  const [walletImg, setWalletImg] = React.useState('');
 
   const onConnectClicked = async () => {
     setIsConnecting(true);
     const wallet = getUsableWallet();
     if (wallet !== null) {
-      const isEnabled = await Bifrost.enableAsync(wallet);
+      setWalletImg(wallet.icon);
+      const isEnabled = await Bifrost.enableAsync(wallet.id);
       const walletAddress = await Bifrost.getUsedAddressesRawAsync();
       if (walletAddress !== undefined && walletAddress.length > 0) {
         setCborWalletAddress(walletAddress[0]);
@@ -50,9 +52,10 @@ function FastTrack() {
       const wallet = getUsableWallet();
       if (wallet !== null) {
         setIsConnecting(true);
-        const isEnabled = await Bifrost.isEnabledAsync(wallet);
+        const isEnabled = await Bifrost.isEnabledAsync(wallet.id);
         if (isEnabled) {
-          await Bifrost.setWalletAsync(wallet);
+          setWalletImg(wallet.icon);
+          await Bifrost.setWalletAsync(wallet.id);
           const addresses = await Bifrost.getUsedAddressesRawAsync();
           if (addresses !== undefined && addresses.length > 0) {
             setCborWalletAddress(addresses[0]);
@@ -90,7 +93,7 @@ function FastTrack() {
         <img src="/img/LogoMilkomeda.svg" className="App-logo" alt="logo" />
         {isConnected ?
           <WalletIndicator
-            iconWallet="/img/iconFlint.png"
+            iconWallet={walletImg}
             addressWallet={walletAddress}
           /> :
           (<>{

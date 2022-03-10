@@ -54,9 +54,9 @@ const ValidatorContent = ({ iconWallet, addressWallet }: any) => {
     const onPageLoadAsync = async () => {
       const wallet = getUsableWallet();
       if (wallet !== null) {
-        const isEnabled = await Bifrost.isEnabledAsync(wallet);
+        const isEnabled = await Bifrost.isEnabledAsync(wallet.id);
         if (isEnabled) {
-          await Bifrost.setWalletAsync(wallet);
+          await Bifrost.setWalletAsync(wallet.id);
           setIsConnected(true);
         }
       }
