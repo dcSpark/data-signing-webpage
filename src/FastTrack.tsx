@@ -115,7 +115,7 @@ function FastTrack() {
       <div className="MainContainer">
         <h1>Fast Track to Access Milkomeda</h1>
         <div className="Content">
-          <ValidatorContent />
+          <ValidatorContent isConnected={isConnected} />
           <UserGuide />
         </div>
       </div>

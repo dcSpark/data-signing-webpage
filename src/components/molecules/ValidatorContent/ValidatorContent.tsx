@@ -8,13 +8,12 @@ import CustomInput from '../../atoms/CustomInput/CustomInput';
 import ResultContainer from '../ResultContainer/ResultContainer';
 import './_ValidatorContent.scss';
 
-const ValidatorContent = ({ iconWallet, addressWallet }: any) => {
+const ValidatorContent = ({ isConnected }: any) => {
   const [Cardano, setCardano] = React.useState<null | typeof import('@emurgo/cardano-serialization-lib-browser/cardano_serialization_lib')>(null);
   // const [MessageSign, setMessageSign] = React.useState<typeof import('@emurgo/cardano-message-signing-browser') | null>(null);
   const [isCardanoLoaded, setIsCardanoLoaded] = React.useState(false);
   const [rewardAddress, setRewardAddress] = React.useState('');
   const [rewardAddressCborHex, setRewardAddressCborHex] = React.useState('');
-  const [isConnected, setIsConnected] = React.useState(false);
   const [ethAddress, setEthAddress] = React.useState('');
   const [COSEignHex, setCOSESignHex] = React.useState<string>('');
 
@@ -57,7 +56,6 @@ const ValidatorContent = ({ iconWallet, addressWallet }: any) => {
         const isEnabled = await Bifrost.isEnabledAsync(wallet.id);
         if (isEnabled) {
           await Bifrost.setWalletAsync(wallet.id);
-          setIsConnected(true);
         }
       }
     };

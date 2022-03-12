@@ -4,18 +4,54 @@ import EmptyState from "../../atoms/EmptyState/EmptyState";
 import "./_ResultContainer.scss";
 
 const ResultContainer = ({ rewardAddr, ethAddr, signedMessage }: any) => {
-  console.log("signed", signedMessage);
+  const [isCopied, setIsCopied] = React.useState(false);
+
+  const isValid = rewardAddr !== undefined && rewardAddr !== '' && ethAddr !== undefined && ethAddr !== '' && signedMessage !== undefined && signedMessage !== '';
+  
+  const generateJsonResult = () => {
+    return {
+      reward_address: rewardAddr,
+      milkomeda_address: ethAddr,
+      sign_messaged: signedMessage
+    };
+  };
+
+  const onBtnCopyClicked = () => {
+    if(!isValid) return;
+    const jsonResult = generateJsonResult();
+    const jsonResultStr = JSON.stringify(jsonResult);
+    navigator.clipboard.writeText(jsonResultStr);
+    setIsCopied(true);
+  }
+
+  const onBtnDownloadClicked = () => {
+    if(!isValid) return;
+    const jsonResult = generateJsonResult();
+    const jsonResultStr = JSON.stringify(jsonResult);
+    const blob = new Blob([jsonResultStr], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "result.json";
+    a.click();
+  }
+
   return (<div className="ResultContainer">
     <div className="HeaderResult">
       <p className="ResultTitle">Result</p>
       <div className="ButtonsContainer">
-        <ActionButton IconButton="/img/iconCopy.svg" textButton="Copy" />
+        <ActionButton
+          theme={isValid ? "" : "Disable"}
+          IconButton="/img/iconCopy.svg"
+          textButton={isCopied ? "Copied" : "Copy"}
+          onClick={onBtnCopyClicked} />
         <span>|</span>
         {/* Use theme="Disable" for disable syles button */}
         <ActionButton
+          theme={isValid ? "" : "Disable"}
           IconButton="/img/iconDownload.svg"
           textButton="Download"
-          theme="Disable"
+          onClick={onBtnDownloadClicked}
         />
       </div>
     </div>
