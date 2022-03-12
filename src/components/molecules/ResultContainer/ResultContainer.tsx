@@ -32,7 +32,7 @@ const ResultContainer = ({ rewardAddr, ethAddr, signedMessage }: any) => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "result.json";
+    a.download = "SignedData.json";
     a.click();
   }
 

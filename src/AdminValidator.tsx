@@ -5,6 +5,13 @@ import AdminValidatorContent from "./components/molecules/AdminValidatorContent/
 import "./App.scss";
 
 function AdminValidator() {
+  const [verificationResult, setVerificationResult] = React.useState<any | null>(null);
+
+  const onVerified = (result: any) => {
+    console.log(result);
+    setVerificationResult(result);
+  };
+
   return (
     <div>
       <header className="App-header">
@@ -13,8 +20,8 @@ function AdminValidator() {
       <div className="MainContainer">
         <h1>Validate Signed message</h1>
         <div className="Content">
-          <AdminValidatorContent />
-          <ValidationResult />
+          <AdminValidatorContent onVerify={onVerified} />
+          <ValidationResult result={verificationResult} />
         </div>
       </div>
     </div>
